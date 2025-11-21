@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ValueMyCar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Pixelify+Sans&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark-theme.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/x-icon">
+
+    
+</head>
+<body class="d-flex flex-column justify-content-center text-center mybody">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='images/car4.gif') }}" alt="" width="80" height="30" class="d-inline-block align-text-top">
+                ValueMyCar
+              </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('whatandwhy') }}">What&Why</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Other Info
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="{{ url_for('stats') }}">Graphs</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('tables') }}">Tables</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('all_algos_used') }}">All Algos Used</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                    </li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+
+    <h3 class="h3">What Algorithm is used?</h3> 
+<div class="div1">
+    <i>"Value My Car"</i> uses <b style="color:darkgreen; text-decoration:underline;">Random Forest</b> at its core to predict the price of the car and is trained on a dataset collected from 
+    <a href="https://www.kaggle.com/" target="_blank">Kaggle</a>.
+</div>
+
+<h3 class="h3">Why?</h3>
+<div class="div1">
+    The reason for using Random Forest as the core model for price prediction is its reliability and strong performance across various regression tasks. 
+    During our model-building process, we evaluated several algorithms and compared their performance metrics. 
+    Random Forest consistently produced stable and accurate predictions with minimal overfitting. 
+    After fine-tuning its hyperparameters, the model showed excellent generalization performance on unseen data. 
+    You can view the <a href="{{ url_for('tables') }}">Comparison Charts</a> of all algorithms used during testing.
+</div>
+
+<h3 class="h3">How?</h3>
+<div class="div1">
+    Random Forest is an ensemble learning algorithm that constructs multiple decision trees during training and merges their results to improve predictive accuracy and control overfitting. 
+    Each tree is built on a random subset of the data and features, introducing randomness that enhances model generalization.
+    The final prediction is made by averaging the outputs of individual trees in regression tasks or by majority voting in classification tasks.
+    This diversity among trees makes Random Forest robust to noise and outliers.
+    <br><br>
+    <br>
+    To know more about Random Forest, 
+    <a href="https://en.wikipedia.org/wiki/Random_forest" target="_blank">Click Here</a>.<br>
+</div>
+
+    
+   
+   
+    <div class="container-fluid footer">
+        <div class="row mt-5">
+          <div class="col-12 text-center bg-dark text-light py-3">
+            <p>&copy; 2025 Value My Car</p>
+          </div>
+          
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/theme-toggle.js') }}"></script>
+</body>
+</html>
